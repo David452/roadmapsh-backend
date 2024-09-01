@@ -32,7 +32,7 @@ cd roadmapsh-backend
 
 Run a specific project:
 ```bash
-cd beginner-projects/project-name
+cd beginner-projects/project-name/cmd
 go run main.go
 ```
 > **Note**: More information on how to run each project can be found in their respective folders.
