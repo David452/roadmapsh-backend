@@ -26,7 +26,7 @@ func saveTaskToJson(task Task) error {
 	return nil
 }
 
-func loadTasksFromJson() (*[]Task, error) {
+func loadTasksFromJson() ([]Task, error) {
 	
 	// Open the file
 	file, err := os.Open(jsonFile)
@@ -44,5 +44,5 @@ func loadTasksFromJson() (*[]Task, error) {
 		return nil, fmt.Errorf("error decoding JSON data: %w", err)
 	}
 	
-	return &tasks, nil
+	return tasks, nil
 }

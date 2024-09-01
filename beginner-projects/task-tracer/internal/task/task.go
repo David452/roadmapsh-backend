@@ -35,8 +35,8 @@ func UpdateTask(id int, status TaskStatus) error {
 	return nil
 }
 
-func ListTasks() ([]Task, error) {
-	// TODO
-	return nil, nil
+func GetTasks() ([]Task, error) {
+	
+	return loadTasksFromJson()
 }
 

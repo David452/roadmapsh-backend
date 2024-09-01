@@ -1,6 +1,5 @@
-package main
+package cmd
 
 func addTask() {
-
 	// TODO
 }

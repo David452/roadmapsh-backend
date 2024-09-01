@@ -1,4 +1,4 @@
-module github.com/David452/rodmapsh-backend/task-tracer
+module github.com/David452/task-tracer
 
 go 1.22.2
 
