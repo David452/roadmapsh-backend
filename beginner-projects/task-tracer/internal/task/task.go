@@ -2,6 +2,7 @@ package task
 
 import (
 	"time"
+	"fmt"
 )
 
 type TaskStatus string
@@ -21,7 +22,24 @@ type Task struct {
 }
 
 func AddTask(description string) error {
-	// TODO
+	tasks, _ := loadTasksFromJson()
+
+	newTask := Task {
+		ID: len(tasks) + 1,
+		Description: description,
+		Status: StatusTodo,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+
+	tasks = append(tasks, newTask)
+
+	err := saveTasksToJson(tasks)
+
+	if err != nil {
+		return fmt.Errorf("error saving tasks to JSON file: %w", err)
+	}
+	
 	return nil
 }
 

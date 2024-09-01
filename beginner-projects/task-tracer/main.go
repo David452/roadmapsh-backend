@@ -19,6 +19,11 @@ func main() {
 				Action: cmd.ListAllTasks,
 
 			},
+			{
+				Name: "add",
+				Description: "Add a new task",
+				Action: cmd.AddTask,
+			},
 		},
 	}
 
