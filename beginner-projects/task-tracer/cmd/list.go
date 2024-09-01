@@ -8,7 +8,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func ListAllTasks(cCtx *cli.Context) error {
+func ListTasks(cCtx *cli.Context) error {
 	
 	tasks, err := task.GetTasks()
 
@@ -16,8 +16,23 @@ func ListAllTasks(cCtx *cli.Context) error {
 		return err
 	}
 
-	for _, task := range tasks {
-		fmt.Println(task)
+	for _, t := range tasks {
+		switch cCtx.Args().First() {
+		case "todo":
+			if t.Status == task.StatusTodo {
+				fmt.Println(t)
+			}
+		case "in-progress":
+			if t.Status == task.StatusInProgress {
+				fmt.Println(t)
+			}
+		case "done":
+			if t.Status == task.StatusDone {
+				fmt.Println(t)
+			}
+		default:
+			fmt.Println(t)
+		}
 	}
 
 	return nil

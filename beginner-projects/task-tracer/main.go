@@ -16,7 +16,7 @@ func main() {
 			{
 				Name: "list",
 				Description: "List all tasks",
-				Action: cmd.ListAllTasks,
+				Action: cmd.ListTasks,
 
 			},
 			{
