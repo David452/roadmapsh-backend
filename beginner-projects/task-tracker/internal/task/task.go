@@ -24,8 +24,17 @@ type Task struct {
 func AddTask(description string) error {
 	tasks, _ := loadTasksFromJson()
 
+	var newID int
+
+	if len(tasks) == 0 {
+		newID = 1
+	} else {
+		newID = tasks[len(tasks)-1].ID + 1
+	}
+
+
 	newTask := Task {
-		ID: len(tasks) + 1,
+		ID: newID,
 		Description: description,
 		Status: StatusTodo,
 		CreatedAt: time.Now(),
