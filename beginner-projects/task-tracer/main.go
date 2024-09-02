@@ -12,37 +12,45 @@ import (
 func main() {
 	
 	app := &cli.App{
+		Name: "task-tracer",
+		Usage: "A simple task manager",
 		Commands: []*cli.Command{
 			{
 				Name: "list",
-				Description: "List all tasks",
+				Usage: "List all tasks",
 				Action: cmd.ListTasks,
+				ArgsUsage: "[todo|in-progress|done]",
 
 			},
 			{
 				Name: "add",
-				Description: "Add a new task",
+				Usage: "Add a new task",
 				Action: cmd.AddTask,
+				ArgsUsage: "<description>",
 			},
 			{
 				Name: "remove",
-				Description: "Remove a task by ID",
+				Usage: "Remove a task by ID",
 				Action: cmd.RemoveTask,
+				ArgsUsage: "<ID>",
 			},
 			{
 				Name: "update",
-				Description: "Update a task by ID",
+				Usage: "Update a task by ID",
 				Action: cmd.UpdateTask,
+				ArgsUsage: "<ID> <description>",
 			},
 			{
 				Name: "mark-in-progress",
-				Description: "Mark a task as in progress",
+				Usage: "Mark a task as in progress",
 				Action: cmd.MarkInProgress,
+				ArgsUsage: "<ID>",
 			},
 			{
 				Name: "mark-done",
-				Description: "Mark a task as done",
+				Usage: "Mark a task as done",
 				Action: cmd.MarkDone,
+				ArgsUsage: "<ID>",
 			},
 		},
 	}
