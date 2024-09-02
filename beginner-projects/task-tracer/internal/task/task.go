@@ -44,7 +44,35 @@ func AddTask(description string) error {
 }
 
 func RemoveTask(id int) error {
-	// TODO
+	
+	tasks, err := loadTasksFromJson()
+
+	if err != nil {
+		return fmt.Errorf("error loading tasks from JSON file: %w", err)
+	}
+
+	var newTasks []Task
+	var idErr error = nil
+
+	for _, t := range tasks {
+		if t.ID == id {
+			newTasks = append(tasks[:t.ID-1], tasks[t.ID:]...)
+			idErr = nil
+			break
+		}
+		idErr = fmt.Errorf("no task with ID %d found", id)
+	}
+
+	if idErr != nil {
+		return idErr
+	}
+
+	err = saveTasksToJson(newTasks)
+
+	if err != nil {
+		return fmt.Errorf("error saving tasks to JSON file: %w", err)
+	}
+
 	return nil
 }
 
