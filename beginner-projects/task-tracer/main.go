@@ -23,10 +23,16 @@ func main() {
 				Name: "add",
 				Description: "Add a new task",
 				Action: cmd.AddTask,
-			},{
+			},
+			{
 				Name: "remove",
 				Description: "Remove a task by ID",
 				Action: cmd.RemoveTask,
+			},
+			{
+				Name: "update",
+				Description: "Update a task by ID",
+				Action: cmd.UpdateTask,
 			},
 		},
 	}

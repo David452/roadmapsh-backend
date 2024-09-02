@@ -69,16 +69,35 @@ func RemoveTask(id int) error {
 
 	err = saveTasksToJson(newTasks)
 
-	if err != nil {
-		return fmt.Errorf("error saving tasks to JSON file: %w", err)
-	}
-
-	return nil
+	return err
 }
 
-func UpdateTask(id int, status TaskStatus) error {
-	// TODO
-	return nil
+func UpdateTask(id int, newDescription string) error {
+
+	tasks, err := loadTasksFromJson()
+
+	if err != nil {
+		return fmt.Errorf("error loading tasks from JSON file: %w", err)
+	}
+	var idErr error = nil
+
+	for i := range tasks {
+		if tasks[i].ID == id {
+			tasks[i].Description = newDescription
+			tasks[i].UpdatedAt = time.Now()
+			idErr = nil
+			break
+		}
+		idErr = fmt.Errorf("no task with ID %d found", id)
+	}
+
+	if idErr != nil {
+		return idErr
+	}
+
+	err = saveTasksToJson(tasks)
+
+	return err
 }
 
 func GetTasks() ([]Task, error) {
