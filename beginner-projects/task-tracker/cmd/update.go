@@ -23,6 +23,9 @@ func UpdateTask(cCtx *cli.Context) error {
 
 	err = task.UpdateTask(idFromArgs, cCtx.Args().Get(1))
 
+
+	fmt.Fprintf(cCtx.App.Writer, "Updated task with ID: %s\n", cCtx.Args().First())
+
 	return err
 
 

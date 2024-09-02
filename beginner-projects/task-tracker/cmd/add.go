@@ -20,5 +20,6 @@ func AddTask(cCtx *cli.Context) error {
 		return err
 	}
 
+	fmt.Fprintf(cCtx.App.Writer, "Added task: %s\n", cCtx.Args().First())
 	return nil
 }

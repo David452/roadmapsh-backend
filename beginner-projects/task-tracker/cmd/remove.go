@@ -23,5 +23,7 @@ func RemoveTask(cCtx *cli.Context) error {
 
 	err = task.RemoveTask(idFromArgs)
 
+	fmt.Fprintf(cCtx.App.Writer, "Removed task with ID: %s\n", cCtx.Args().First())
+
 	return err
 }

@@ -23,6 +23,8 @@ func MarkDone(cCtx *cli.Context) error {
 		return fmt.Errorf("invalid task ID: %w", err)
 	}
 
+	fmt.Fprintf(cCtx.App.Writer, "Marked task done: %s\n", cCtx.Args().First())
+
 	return task.MarkTask(idFromArgs, task.StatusDone)
 }
 
@@ -38,6 +40,8 @@ func MarkInProgress(cCtx *cli.Context) error {
 	if err != nil {
 		return fmt.Errorf("invalid task ID: %w", err)
 	}
+
+	fmt.Fprintf(cCtx.App.Writer, "Marked task in progress: %s\n", cCtx.Args().First())
 
 	return task.MarkTask(idFromArgs, task.StatusInProgress)
 
