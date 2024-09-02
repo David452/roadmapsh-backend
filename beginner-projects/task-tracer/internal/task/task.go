@@ -105,3 +105,32 @@ func GetTasks() ([]Task, error) {
 	return loadTasksFromJson()
 }
 
+func MarkTask(id int, status TaskStatus) error {
+
+	tasks, err := loadTasksFromJson()
+
+	if err != nil {
+		return fmt.Errorf("error loading tasks from JSON file: %w", err)
+	}
+
+	var idErr error = nil
+
+	for i := range tasks {
+		if tasks[i].ID == id {
+			tasks[i].Status = status
+			tasks[i].UpdatedAt = time.Now()
+			idErr = nil
+			break
+		}
+		idErr = fmt.Errorf("no task with ID %d found", id)
+	}
+
+	if idErr != nil {
+		return idErr
+	}
+
+	err = saveTasksToJson(tasks)
+
+	return err
+}
+

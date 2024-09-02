@@ -34,6 +34,16 @@ func main() {
 				Description: "Update a task by ID",
 				Action: cmd.UpdateTask,
 			},
+			{
+				Name: "mark-in-progress",
+				Description: "Mark a task as in progress",
+				Action: cmd.MarkInProgress,
+			},
+			{
+				Name: "mark-done",
+				Description: "Mark a task as done",
+				Action: cmd.MarkDone,
+			},
 		},
 	}
 
