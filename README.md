@@ -15,7 +15,7 @@ This repository contains my solutions to projects provided by the [backend devel
 
 Here are some of the beginner projects solved:
 
-- **task tracer**: Task tracker is a project used to track and manage your tasks.
+- **task tracker**: Task tracker is a project used to track and manage your tasks.
 
 > Solutions can be found in the respective folders.
 
