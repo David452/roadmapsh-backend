@@ -16,6 +16,7 @@ This repository contains my solutions to projects provided by the [backend devel
 Here are some of the beginner projects solved:
 
 - **[task tracker](https://roadmap.sh/projects/task-tracker)**: Task tracker is a project used to track and manage your tasks.
+- **[github user activity](https://roadmap.sh/projects/github-user-activity)**: In this project, I built a simple command line interface (CLI) to fetch the recent activity of a GitHub user and display it in the terminal.
 
 > Solutions can be found in the respective folders.
 
