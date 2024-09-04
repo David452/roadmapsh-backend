@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 	"fmt"
+
+	"github.com/David452/unit-converter/internal/handlers"
 )
 
 const (
@@ -17,9 +19,7 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "./web/templates/index.html")
-	})
+	http.HandleFunc("/", handlers.IndexHandler)
 
 	http.ListenAndServe(PORT, nil)
 }
