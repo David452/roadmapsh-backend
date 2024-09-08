@@ -15,11 +15,13 @@ func main() {
 
 	fmt.Printf("Listening on port %s\n", PORT)
 
-	fs := http.FileServer(http.Dir("./web/static"))
+	fs := http.FileServer(http.Dir("./web/templates"))
 
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	http.Handle("/templates/", http.StripPrefix("/templates/", fs))
 
 	http.HandleFunc("/", handlers.IndexHandler)
+
+	http.HandleFunc("/convert", handlers.ConvertHandler)
 
 	http.ListenAndServe(PORT, nil)
 }
