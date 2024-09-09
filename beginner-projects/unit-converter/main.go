@@ -15,7 +15,7 @@ func main() {
 
 	fmt.Printf("Listening on port %s\n", PORT)
 
-	fs := http.FileServer(http.Dir("./web/templates"))
+	fs := http.FileServer(http.Dir("./static"))
 
 	http.Handle("/", fs)
 
