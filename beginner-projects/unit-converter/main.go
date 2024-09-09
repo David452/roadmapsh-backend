@@ -17,9 +17,7 @@ func main() {
 
 	fs := http.FileServer(http.Dir("./web/templates"))
 
-	http.Handle("/templates/", http.StripPrefix("/templates/", fs))
-
-	http.HandleFunc("/", handlers.IndexHandler)
+	http.Handle("/", fs)
 
 	http.HandleFunc("/convert", handlers.ConvertHandler)
 
