@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "npx tailwindcss -i input.css -o output.css",
+    "run": "npx tailwindcss -i input.css -o output.css --watch"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
