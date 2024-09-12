@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTMX Form Example</title>
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
+    <nav hx-boost="true" hx-target="is_length_container">
+        <a href="/length.html" class="active">Length</a>
+        <a href="/weight.html">Weight</a>
+    </nav>
 
     <form 
     hx-post="/convert" 
@@ -22,11 +27,10 @@
 
         <label for="unit_to">Unit to</label>
         <input type="text" name="unit_to" id="unit_to" required>
-        <span>
-            <label for="is_length">length</label>
-            <input type="checkbox" name="is_length" id="is_length">
-            <label for="is_length">weight</label>
-        </span>
+
+        <div id="is_length_container">
+            <input type="checkbox" name="is_length" id="is_length" checked>
+        </div>
 
         <button type="submit">Convert</button>
     </form>

@@ -39,7 +39,7 @@ func ConvertHandler(w http.ResponseWriter, r *http.Request) {
 	originalValue, err := strconv.Atoi(valueStr)
 	
 	if err != nil {
-		log.Fatal(err)
+		log.Panic(err)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -54,9 +54,10 @@ func ConvertHandler(w http.ResponseWriter, r *http.Request) {
 		ConvertedNum: convertedValue,
 	}
 
-	tmpl, err := template.ParseFiles("./web/templates/result.html")
+	tmpl, err := template.ParseFiles("./static/result.html")
 
 	if err != nil {
+		log.Panic(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
