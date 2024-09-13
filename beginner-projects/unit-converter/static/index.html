@@ -10,62 +10,50 @@
 </head>
 <body>
 
-    <nav hx-boost="true" 
-    hx-target="#is_length_container" 
-    hx-swap="innerHTML">
-        <a href="/length.html" class="active">Length</a>
-        <a href="/weight.html">Weight</a>
-    </nav>
-
     <form 
     hx-post="/convert" 
     hx-swap="innerHTML" 
     hx-target="#result"
-    method="post">
+    method="post"
+    class="container-sm mt-5"
+    >
 
         <div class="mb-3">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" name="is_length" id="flexSwitchCheckDefault">
+                <input 
+                class="form-check-input" 
+                type="checkbox" 
+                role="switch" 
+                name="is_length" 
+                id="flexSwitchCheckDefault"
+
+                hx-get="/select"
+                hx-trigger="load, change"
+                hx-swap="innerHTML"
+                hx-target="#select_container" 
+                hx-sync="closest form:abort"
+                >
                 <label class="form-check-label" for="flexSwitchCheckDefault">weight / length</label>
             </div>     
         </div>
         
         <div class="mb-3">
             <label for="value" class="form-label">Value</label>
-            <input type="number" name="value" class="form-control">
+            <input type="number" name="value" id="value" class="form-control" step="any" min="0" max="1.79769313486231570814527423731704356798070e+308">
         </div>
 
-        <div class="mb-3">
-            <select name="unit_from" class="form-select" aria-label="Unit to convert from">
-                <option value="millimeter">millimeter</option>
-                <option value="centimeter">centimeter</option>
-                <option value="meter">meter</option>
-                <option value="kilometer">kilometer</option>
-                <option value="mile">mile</option>
-                <option value="yard">yard</option>
-                <option value="foot">foot</option>
-                <option value="inch">inch</option>
-            </select>
+        <div id="select_container">
+
+            <h2>Couldn't load units</h2>
+            
         </div>
 
-        <div class="mb-3"></div>
-            <select name="unit_to" class="form-select" aria-label="Unit to convert from">
-                <option value="millimeter">millimeter</option>
-                <option value="centimeter">centimeter</option>
-                <option value="meter">meter</option>
-                <option value="kilometer">kilometer</option>
-                <option value="mile">mile</option>
-                <option value="yard">yard</option>
-                <option value="foot">foot</option>
-                <option value="inch">inch</option>
-            </select>
-        </div>
 
-        <button type="submit">Convert</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 2rem;">Convert</button>
     </form>
 
     <!-- Container where the HTML snippet will be displayed -->
-    <div id="result">
+    <div id="result" class="container-sm mt-5">
         <!-- Content will be dynamically inserted here -->
     </div>
 
