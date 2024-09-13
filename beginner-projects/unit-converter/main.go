@@ -21,5 +21,7 @@ func main() {
 
 	http.HandleFunc("/convert", handlers.ConvertHandler)
 
+	http.HandleFunc("/select", handlers.SelectHandler)
+
 	http.ListenAndServe(PORT, nil)
 }
