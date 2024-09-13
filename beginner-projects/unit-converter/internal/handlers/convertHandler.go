@@ -13,7 +13,7 @@ import (
 type SumData struct {
 	UnitFrom 		string
 	UnitTo 			string
-	OriginalNum 	int
+	OriginalNum 	float64
 	ConvertedNum 	float64
 }
 
@@ -36,7 +36,7 @@ func ConvertHandler(w http.ResponseWriter, r *http.Request) {
 	
 
 
-	originalValue, err := strconv.Atoi(valueStr)
+	originalValue, err := strconv.ParseFloat(valueStr, 64)
 	
 	if err != nil {
 		log.Panic(err)
