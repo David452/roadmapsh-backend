@@ -1,0 +1,7 @@
+version = 1
+
+[[analyzers]]
+name = "go"
+
+  [analyzers.meta]
+  import_root = "github.com/David452/roadmapsh-backend"
